@@ -1,9 +1,11 @@
-package me.alexjordache.geopix;
+package me.alexjordache.geopix.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import me.alexjordache.geopix.R;
+
+public class InitialActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
