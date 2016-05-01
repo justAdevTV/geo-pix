@@ -10,6 +10,7 @@ import java.io.IOException;
 
 
 import me.alexjordache.geopix.R;
+import me.alexjordache.geopix.utils.constants;
 import okhttp3.Call;
 import okhttp3.Headers;
 import okhttp3.MediaType;
@@ -52,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText userNameField = (EditText)findViewById(R.id.initial_username);
         EditText passwordField = (EditText)findViewById(R.id.initial_password);
 
-        String userName = userNameField.getText().toString();
+        final String userName = userNameField.getText().toString();
         String password = passwordField.getText().toString();
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
         RequestBody body = RequestBody.create(mediaType, "username=" + userName + "&password=" + password + "&=");
@@ -75,8 +76,9 @@ public class LoginActivity extends AppCompatActivity {
                 for (int i = 0, size = responseHeaders.size(); i < size; i++) {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
-
+                constants.token = userName;
                 System.out.println(response.body().string());
+
             }
         });
     }
