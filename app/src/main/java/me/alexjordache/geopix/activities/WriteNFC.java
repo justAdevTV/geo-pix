@@ -81,7 +81,7 @@ public class WriteNFC extends AppCompatActivity {
         super.onNewIntent(intent);
 
         if(intent.hasExtra(NfcAdapter.EXTRA_TAG)) {
-            Toast.makeText(this, "NfcIntent!", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "NfcIntent!", Toast.LENGTH_LONG).show();
 
             // IF READ IS SELECTED
             if(tglReadWrite.isChecked()) {
@@ -91,7 +91,7 @@ public class WriteNFC extends AppCompatActivity {
                     readTextFromMessage((NdefMessage) parcelables[0]);
                 }
             } else {
-                Toast.makeText(this, "No NDEF messages found!", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "No NDEF messages found!", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -115,7 +115,7 @@ public class WriteNFC extends AppCompatActivity {
             txtTagContent.setText(tagContent);
 
         } else {
-            Toast.makeText(this, "No NDEF records found!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "No NDEF records found!", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -153,7 +153,7 @@ public class WriteNFC extends AppCompatActivity {
             ndefFormatable.format(ndefMessage);
             ndefFormatable.close();
 
-            Toast.makeText(this, "Tag written!!!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Tag written!!!", Toast.LENGTH_SHORT).show();
 
 
         } catch (Exception e) {
@@ -178,7 +178,7 @@ public class WriteNFC extends AppCompatActivity {
             }
             else {
 
-                Toast.makeText(this, "About to connect..", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "About to connect..", Toast.LENGTH_SHORT).show();
 
                 ndef.connect();
 
@@ -192,7 +192,7 @@ public class WriteNFC extends AppCompatActivity {
                 ndef.writeNdefMessage(ndefMessage);
                 ndef.close();
 
-                Toast.makeText(this, "Tag written!!!", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Tag written!!!", Toast.LENGTH_SHORT).show();
 
             }
 
