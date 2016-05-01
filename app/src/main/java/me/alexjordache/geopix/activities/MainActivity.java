@@ -23,6 +23,13 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+     String userid;
+     String username;
+     String userStickerScore;
+     String foundStickerScore;
+
+
     private final OkHttpClient client = new OkHttpClient();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,29 +77,31 @@ public class MainActivity extends AppCompatActivity {
                     //JSONObject usernameJson = jsonResponse.getJSONObject("username");
                     //JSONObject userStickerScoreJson = jsonResponse.getJSONObject("userStickerScore");
                     //JSONObject foundStickerScoreJson = jsonResponse.getJSONObject("foundStickerScore");
-                    String userid = jsonResponse.getString("_id");
-                    String username = jsonResponse.getString("username");
-                    String userStickerScore = jsonResponse.getString("userStickerScore");
-                    String foundStickerScore = jsonResponse.getString("foundStickerScore");
+                     userid = jsonResponse.getString("_id");
+                     username = jsonResponse.getString("username");
+                     userStickerScore = "10";
+                     foundStickerScore = "20";
                     System.out.println(username);
                     System.out.println(userStickerScore);
                     System.out.println(foundStickerScore);
-                    TextView userNameView = (TextView)findViewById(R.id.main_userName);
-                    TextView stickerCollectionView = (TextView)findViewById(R.id.yourSticker);
-                    TextView stickersFoundView = (TextView)findViewById(R.id.stickersFound);
-                    userNameView.setText(username);
-                    stickerCollectionView.setText(userStickerScore);
-                    stickersFoundView.setText(foundStickerScore);
-                    constants.userid = userid;
-                    constants.username = username;
-                    constants.userStickerScore = Integer.parseInt(userStickerScore);
-                    constants.foundStickerScore = Integer.parseInt(foundStickerScore);
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
+
         });
+        TextView userNameView = (TextView)findViewById(R.id.main_userName);
+        TextView stickerCollectionView = (TextView)findViewById(R.id.yourSticker);
+        TextView stickersFoundView = (TextView)findViewById(R.id.stickersFound);
+        userNameView.setText("alex");
+        stickerCollectionView.setText("32");
+        stickersFoundView.setText("45");
+        constants.userid = userid;
+        constants.username = username;
+        constants.userStickerScore = 44;
+        constants.foundStickerScore = 55;
 
     }
 
