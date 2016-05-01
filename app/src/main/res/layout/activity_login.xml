@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".activities.InitialActivity">
+    tools:context=".activities.LoginActivity">
 
 
     <TextView
@@ -62,6 +62,7 @@
         android:textAllCaps="true"
         android:layout_marginBottom="30dp"
         android:id="@+id/initial_login_button"
+        android:onClick="doLogin"
 
         />
     <TextView
