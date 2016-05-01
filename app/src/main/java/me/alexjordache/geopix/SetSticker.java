@@ -1,15 +1,13 @@
-package me.alexjordache.geopix.activities;
+package me.alexjordache.geopix;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import me.alexjordache.geopix.R;
-
-public class InitialActivity extends AppCompatActivity {
+public class SetSticker extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_beam_sticker);
+        setContentView(R.layout.activity_set_sticker);
     }
 }
