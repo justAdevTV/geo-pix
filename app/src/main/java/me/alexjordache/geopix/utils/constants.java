@@ -5,4 +5,8 @@ package me.alexjordache.geopix.utils;
  */
 public class constants {
     public static String token = null;
+    public static String userid = null;
+    public static String username = null;
+    public static int userStickerScore = 0;
+    public static int foundStickerScore = 0;
 }

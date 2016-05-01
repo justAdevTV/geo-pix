@@ -6,25 +6,101 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import me.alexjordache.geopix.R;
+import me.alexjordache.geopix.utils.constants;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-
+    private final OkHttpClient client = new OkHttpClient();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        String userName = userNameView.getText().toString();
+//        Integer stickersCollection = Integer.parseInt(stickerCollectionView.getText().toString());
+//        Integer stickersFound = Integer.parseInt(stickersFoundView.getText().toString());
+
         setContentView(R.layout.activity_main);
+        System.out.println("hi");
+        while (constants.token == null) {}
+
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        RequestBody body = RequestBody.create(mediaType, "=");
+        Request request = new Request.Builder()
+                .url("http://geopix.azurewebsites.net/api/me")
+                .get()
+                .addHeader("x-access-token", "helloo")
+                .addHeader("cache-control", "no-cache")
+                .addHeader("postman-token", "0b9d4648-79c6-7d4c-35a0-11ce51516939")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful())
+                    throw new IOException("Unexpected code " + response);
+
+                Headers responseHeaders = response.headers();
+                for (int i = 0, size = responseHeaders.size(); i < size; i++) {
+                    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+                }
+                String jsonstr = response.body().string();
+                System.out.println(jsonstr);
+                JSONObject jsonResponse;
+
+                try {
+
+                    jsonResponse = new JSONObject(jsonstr);
+                    //JSONObject usernameJson = jsonResponse.getJSONObject("username");
+                    //JSONObject userStickerScoreJson = jsonResponse.getJSONObject("userStickerScore");
+                    //JSONObject foundStickerScoreJson = jsonResponse.getJSONObject("foundStickerScore");
+                    String userid = jsonResponse.getString("_id");
+                    String username = jsonResponse.getString("username");
+                    String userStickerScore = jsonResponse.getString("userStickerScore");
+                    String foundStickerScore = jsonResponse.getString("foundStickerScore");
+                    System.out.println(username);
+                    System.out.println(userStickerScore);
+                    System.out.println(foundStickerScore);
+                    TextView userNameView = (TextView)findViewById(R.id.main_userName);
+                    TextView stickerCollectionView = (TextView)findViewById(R.id.yourSticker);
+                    TextView stickersFoundView = (TextView)findViewById(R.id.stickersFound);
+                    userNameView.setText(username);
+                    stickerCollectionView.setText(userStickerScore);
+                    stickersFoundView.setText(foundStickerScore);
+                    constants.userid = userid;
+                    constants.username = username;
+                    constants.userStickerScore = Integer.parseInt(userStickerScore);
+                    constants.foundStickerScore = Integer.parseInt(foundStickerScore);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     public void goToNFC(View view) {
 
-        TextView userNameView = (TextView)findViewById(R.id.main_userName);
-        TextView stickerCollectionView = (TextView)findViewById(R.id.yourSticker);
-        TextView stickersFoundView = (TextView)findViewById(R.id.stickersFound);
 
-        String userName = userNameView.getText().toString();
-        Integer stickersCollection = Integer.parseInt(stickerCollectionView.getText().toString());
-        Integer stickersFound = Integer.parseInt(stickersFoundView.getText().toString());
+
+
 
         Intent intent = new Intent(this, WriteNFC.class);
         startActivity(intent);

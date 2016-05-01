@@ -18,7 +18,7 @@
             android:layout_height="212dp"
             android:background="#4752a5">
 
-            
+
             <me.alexjordache.geopix.model.RoundedImageView
                 android:layout_width="95dp"
                 android:layout_height="95dp"
