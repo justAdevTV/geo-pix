@@ -9,6 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:background="@drawable/desktop_compress"
     tools:context=".activities.LoginActivity">
 
 
