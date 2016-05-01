@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Jason Wong"
-                android:id="@+id/userName"
+                android:id="@+id/main_userName"
                 android:layout_marginTop="99dp"
 
                 android:textSize="25dp"
@@ -46,9 +46,9 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Rank: 1"
                 android:id="@+id/rank"
-                android:layout_below="@+id/userName"
-                android:layout_alignLeft="@+id/userName"
-                android:layout_alignStart="@+id/userName" />
+                android:layout_below="@+id/main_userName"
+                android:layout_alignLeft="@+id/main_userName"
+                android:layout_alignStart="@+id/main_userName" />
 
         </RelativeLayout>
 
@@ -154,6 +154,8 @@
         android:translationZ="10dp"
         android:text="+"
         android:textSize="29dp"
-        android:textColor="#484f5b" />
+        android:textColor="#484f5b"
+        android:onClick="goToNFC"
+        />
 
 </RelativeLayout>
