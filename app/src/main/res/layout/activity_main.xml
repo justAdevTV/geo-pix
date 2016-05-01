@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Rank: 1738"
+                android:text="Rank: 1"
                 android:id="@+id/rank"
                 android:layout_below="@+id/userName"
                 android:layout_alignLeft="@+id/userName"
