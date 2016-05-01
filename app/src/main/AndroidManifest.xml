@@ -19,6 +19,9 @@
         </activity>
 
         <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.ReadNFC" />
+        <activity android:name=".activities.WriteNFC"/>
+        
 
 
 

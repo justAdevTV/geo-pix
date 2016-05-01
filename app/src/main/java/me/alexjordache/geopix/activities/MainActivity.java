@@ -26,9 +26,8 @@ public class MainActivity extends AppCompatActivity {
         Integer stickersCollection = Integer.parseInt(stickerCollectionView.getText().toString());
         Integer stickersFound = Integer.parseInt(stickersFoundView.getText().toString());
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, WriteNFC.class);
         startActivity(intent);
-
 
     }
 }
