@@ -2,7 +2,7 @@
 
 An Android application in which users place unique NFC (Near Field Communication) stickers with information about the particular location and a hint of where to find more stickers.
 
-![ http://coursewatcher.herokuapp.com](https://cloud.githubusercontent.com/assets/11794656/13901242/395250ec-edda-11e5-8979-1c39bf7a769a.gif)
+![https://cloud.githubusercontent.com/assets/11794656/15090595/a6cfcffa-13e1-11e6-95bd-9d3e0320fefa.gif](https://cloud.githubusercontent.com/assets/11794656/15090595/a6cfcffa-13e1-11e6-95bd-9d3e0320fefa.gif)
 
 ##Installation and Usage
 
